@@ -1,0 +1,23 @@
+.card{
+    border: 0.2rem solid black;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+.card-header{
+    text-align: center;
+    font-size: large;
+}
+.card-text{
+    text-align: center;
+}
+.card-body{
+    text-align: center;
+}
+.form-control-field{
+    margin-left: 50rem;
+    margin-right: 50rem;
+}
+.list-group{
+    margin-left: 20rem;
+    margin-right: 20rem;
+}

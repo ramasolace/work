@@ -1,0 +1,6 @@
+
+<div class="profile-userbuttons">
+    <button class="btn btn-success" (click)="startGame()" [disabled]="!isClick">Start Game</button>
+    <button class="btn btn-danger" (click)="pauseGame()" [disabled]="isClick">Pause Game</button>
+    <button class="btn btn-info" (click)="resetGame()" [disabled]="isClick">Reset</button>
+</div>

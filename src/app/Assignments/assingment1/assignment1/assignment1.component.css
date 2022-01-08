@@ -1,0 +1,28 @@
+.card{
+    border: 0.2rem solid black;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+.card-header{
+    text-align: center;
+    font-size: large;
+}
+.card-text{
+    text-align: center;
+}
+.hour-card{
+    border: 0.2rem solid black;
+    border-radius: 12px;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+.classA{
+    background-color: cornflowerblue;
+}
+
+.classB{
+    background-color: pink;
+}
+.classC{
+    background: repeating-linear-gradient(#74ABDD, #74ABDD 49.9%, pink 50.1%, pink 100%);
+}

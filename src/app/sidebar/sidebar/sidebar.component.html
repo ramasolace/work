@@ -1,0 +1,76 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+                <div class=" profile">
+                        <div class="profile-sidebar">
+                            <!-- SIDEBAR USERPIC -->
+                            <div class="profile-userpic">
+                                <img src="https://gravatar.com/avatar/31b64e4876d603ce78e04102c67d6144?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png" class="img-responsive" alt="">
+                            </div>
+                            <!-- END SIDEBAR USERPIC -->
+                            <!-- SIDEBAR USER TITLE -->
+                            <div class="profile-usertitle">
+                                <div class="profile-usertitle-name">
+                                    Jason Davis
+                                </div>
+                                <div class="profile-usertitle-job">
+                                    Developer
+                                </div>
+                            </div>
+                            <!-- END SIDEBAR USER TITLE -->
+                            <!-- SIDEBAR BUTTONS -->
+                            <div class="profile-userbuttons">
+                                <button type="button" class="btn btn-success btn-sm">Follow</button>
+                                <button type="button" class="btn btn-danger btn-sm">Message</button>
+                            </div>
+                    
+                        </div>
+                </div>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li *ngFor="let menu of menuList">
+                <a href="#">
+                    <span class="fas fa-home"> {{menu}}</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <div class="container">
+              <div class="row">
+                 <app-assignment1></app-assignment1>
+                  </div>
+              <!-- <div class="row">
+                <app-assignment2></app-assignment2>
+              </div>
+              <div class="row">
+                <app-assignment3></app-assignment3>
+              </div>
+              <!-- <div class="row">
+                <app-employee-list></app-employee-list>
+              </div> -->
+              <!-- <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">Assignment 4</div>
+                        <div class="card-header">Create Simple Game</div>
+                        <div class="card-body">
+                            <app-game-control (intervalFired)="getInterval($event)"></app-game-control>
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col"><app-odd *ngFor="let odd of oddNumbers" [oddNumber]="odd">odd</app-odd></div>
+                                  <div class="col"> <app-even *ngFor="let even of evenNumbers " [evenNumber] ="even">even</app-even></div>
+                                </div>
+                                <div *ngIf="actualNumber === 0" ><strong>click to start button</strong></div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --> 
+          </div>
+    </div>
+</div>

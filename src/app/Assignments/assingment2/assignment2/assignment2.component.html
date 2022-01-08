@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">Assignment 2</div>
+                <div class="card-header">Data Binding
+                    <p> After 1 sec showing name and button</p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <label>Two way data binding</label>
+                            <div class="form-control-field">
+                                <input type="text" class="form-control" [(ngModel)]="name" placeholder="Type....">
+                            </div>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>String Interpolation</label>
+                           <p><small>{{name}}</small></p> 
+                        </div>
+                        <div class="col-md-6">
+                            <label> Property Binding</label>
+                            <div>
+                                <button [disabled]="isShowButton" type="button" class="btn btn-primary" (click)="onSubmit()">Click Me</button>
+                            </div>
+                        </div>
+                      </div>
+                     
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
