@@ -1,5 +1,38 @@
 
-<table class="table table-sm table-dark">
+<button
+  type="button"
+  class="btn btn-primary"
+  (click)="openPopup('add')">Add Data
+</button>
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{formAction|uppercase}}</h4>
+      </div>
+      <div class="modal-body">
+        <app-new-employee #newEmployee></app-new-employee>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary mr-2" 
+                (click)="onSubmit()">
+          Save
+        </button>
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="Employees.length>0; else noData ">
+  <table class="table table-sm table-striped">
     <thead>
       <tr>
         <th scope="col">Sr no.</th>
@@ -15,12 +48,18 @@
       <tr   *ngFor="let data of Employees;  let i = index">
         <th scope="row">{{i+1}}</th>
         <td>{{data.employeeCode}}</td>
-        <td>{{data.firstName}} {{data.lastName}}</td>
-        <td>{{data.jobTitleName}}</td>
-        <td>{{data.phoneNumber}}</td>
-        <td>{{data.emailAddress}}</td>
-        <td><button  type="button" class="btn btn-primary">Edit</button> <button  type="button" class="btn btn-primary">Delete</button></td>
+        <td placement="top" container="body" ngbTooltip="{{data.firstName}} {{data.lastName}}">{{data.firstName}} {{data.lastName}}</td>
+        <td>{{data.designation}}</td>
+        <td>{{data.phone}}</td>
+        <td>{{data.email}}</td>
+        <td><button  type="button"  (click)="openEdit(i,data)" class="btn btn-primary mr-2">Edit</button> <button  type="button" class="btn btn-primary"  (click)="delete(i)">Delete</button></td>
       </tr>
     
     </tbody>
   </table>
+</div>
+<ng-template #noData>
+  <div class="alert alert-success" role="alert">
+    No data found! 
+   </div>
+</ng-template>

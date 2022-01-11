@@ -1,6 +1,12 @@
-.navbar{
-    margin-bottom: 0;
-    background-color: #262830;
-    border-bottom-color: #6e717e;
-    border-radius: 0%;
-}
+.card{
+    border: 0.2rem solid black;
+    border-radius: 12px;
+    margin-top: 1rem;
+  }
+  .card-header{
+    text-align: center;
+    font-size: large;
+  }
+  .card-body{
+    text-align: center;
+  }

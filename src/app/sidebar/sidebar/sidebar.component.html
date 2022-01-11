@@ -40,37 +40,18 @@
 
     <!-- Page Content  -->
     <div id="content">
-        <div class="container">
-              <div class="row">
-                 <app-assignment1></app-assignment1>
-                  </div>
-              <!-- <div class="row">
-                <app-assignment2></app-assignment2>
-              </div>
-              <div class="row">
-                <app-assignment3></app-assignment3>
-              </div>
-              <!-- <div class="row">
-                <app-employee-list></app-employee-list>
-              </div> -->
-              <!-- <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">Assignment 4</div>
-                        <div class="card-header">Create Simple Game</div>
-                        <div class="card-body">
-                            <app-game-control (intervalFired)="getInterval($event)"></app-game-control>
-                              <div class="container">
-                                <div class="row">
-                                  <div class="col"><app-odd *ngFor="let odd of oddNumbers" [oddNumber]="odd">odd</app-odd></div>
-                                  <div class="col"> <app-even *ngFor="let even of evenNumbers " [evenNumber] ="even">even</app-even></div>
-                                </div>
-                                <div *ngIf="actualNumber === 0" ><strong>click to start button</strong></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --> 
-          </div>
-    </div>
+      <ul class="nav nav-pills">
+        <li *ngFor="let data of asignments"[class.active]="tempateName == data">
+          <a (click)="tempateName=data">{{data | uppercase}}</a>
+        </li>
+      </ul>
+      <div [ngSwitch]="tempateName">
+        <div *ngSwitchCase="'assignment1'"><app-assignment1></app-assignment1></div>
+        <div *ngSwitchCase="'assignment2'"><app-assignment2></app-assignment2></div>
+        <div *ngSwitchCase="'assignment3'"><app-assignment3></app-assignment3></div>
+        <div *ngSwitchCase="'assignment4'"><app-employee></app-employee></div>
+        <div *ngSwitchCase="'assignment5'">
+          <app-employee-list></app-employee-list>
+        </div>
+      </div>  
 </div>

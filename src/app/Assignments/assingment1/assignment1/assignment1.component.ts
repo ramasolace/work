@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Assignment1Component implements OnInit {
   dateObj: any
-  startDate: any;
-  endDate: any;
   interval: any;
   hours: any;
+  startDate = (new Date()).setHours(10, 0, 0, 0);
+  endDate = (new Date()).setHours(20, 0, 0, 0);
   totalHours = [
     {
       id: 1,
@@ -63,7 +63,7 @@ export class Assignment1Component implements OnInit {
       status: 'false'
     },
   ];
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit(): void {
     this.showTime();
@@ -76,8 +76,6 @@ export class Assignment1Component implements OnInit {
     }, 1000);
     const d = new Date();
     this.dateObj = d.getTime();
-    this.startDate = (new Date()).setHours(10, 0, 0, 0);
-    this.endDate = (new Date()).setHours(20, 0, 0, 0);
     this.hours = Math.abs(this.startDate - this.dateObj) / 36e5;
     let hour = parseInt(this.hours);
     this.totalHours.reverse();

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EmployeesService } from 'src/app/employees.service';
+import { NewEmployeeComponent } from 'src/app/new-employee/new-employee.component';
+
 
 @Component({
   selector: 'app-employee-list',
@@ -6,44 +10,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-    Employees = [
-    {
-    "userId":"rirani",
-    "jobTitleName":"Developer",
-    "firstName":"Romin",
-    "lastName":"Irani",
-    "preferredFullName":"Romin Irani",
-    "employeeCode":"E1",
-    "region":"CA",
-    "phoneNumber":"408-1234567",
-    "emailAddress":"romin.k.irani@gmail.com"
-    },
-    {
-    "userId":"nirani",
-    "jobTitleName":"Developer",
-    "firstName":"Neil",
-    "lastName":"Irani",
-    "preferredFullName":"Neil Irani",
-    "employeeCode":"E2",
-    "region":"CA",
-    "phoneNumber":"408-1111111",
-    "emailAddress":"neilrirani@gmail.com"
-    },
-    {
-    "userId":"thanks",
-    "jobTitleName":"Program Directory",
-    "firstName":"Tom",
-    "lastName":"Hanks",
-    "preferredFullName":"Tom Hanks",
-    "employeeCode":"E3",
-    "region":"CA",
-    "phoneNumber":"408-2222222",
-    "emailAddress":"tomhanks@gmail.com"
-    }
-    ];
-  constructor() { }
+  [x: string]: any;
+  @ViewChild('newEmployee') newEmployee: NewEmployeeComponent;
+    Employees;
+    formAction = 'add';
+    index;
+  constructor(private service: EmployeesService) {
+
+   }
 
   ngOnInit(): void {
+    this.Employees=this.service.getEmp();
   }
-
+  displayStyle = "none";
+  
+  openPopup(data) {
+    this.formAction ='add'
+     this.newEmployee.profileForm.reset();
+    console.log(data);
+    this.displayStyle = "block";
+  }
+  onSubmit(){
+    if(this.newEmployee.profileForm.valid){
+      const obj =this.newEmployee.profileForm.value;
+      const payload = obj;
+      payload.employeeCode = "E";
+      console.log(payload);
+      this.formAction === 'add'?this.service.addEmp(payload):this.service.editEmp(this.index,payload);
+      this.newEmployee.profileForm.reset();
+      this.displayStyle = "none";
+    }
+   
+  }
+  openEdit(i,data){
+    this.index = i;
+    this.formAction = 'edit'
+    this.newEmployee.profileForm.patchValue(data);
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
+  delete(i){
+    this.service.delete(i);
+  }
 }
+
+

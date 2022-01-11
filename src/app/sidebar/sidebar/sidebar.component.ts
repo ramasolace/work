@@ -7,6 +7,9 @@ import { Component,  OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   menuList = ['Employee List', 'Department List', 'Other']
+  asignments = ['assignment1', 'assignment2', 'assignment3',"assignment4", "assignment5"];
+  tempateName = 'assignment1'
+  active = 1;
   constructor() { }
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
@@ -23,6 +26,9 @@ export class SidebarComponent implements OnInit {
       (number % 2 === 0)? this.evenNumbers.push(number): this.oddNumbers.push(number);
     }
     
+  }
+  onClick(value:string){
+    console.log(value);
   }
 
 }

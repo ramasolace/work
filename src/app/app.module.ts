@@ -7,12 +7,14 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { Assignment1Component } from './Assignments/assingment1/assignment1/assignment1.component';
 import { Assignment2Component } from './Assignments/assingment2/assignment2/assignment2.component';
 import { Assignment3Component } from './Assignments/assingment3/assignment3/assignment3.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar/sidebar.component';
 import { EmployeeListComponent } from './employeeList/employee-list/employee-list.component';
 import { GameControlComponent } from './game-control/game-control.component';
 import { EvenComponent } from './even/even.component';
 import { OddComponent } from './odd/odd.component';
+import {NgbActiveModal, NgbAlertModule,  NgbModule,  NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import { NewEmployeeComponent } from './new-employee/new-employee.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,18 @@ import { OddComponent } from './odd/odd.component';
     EmployeeListComponent,
     GameControlComponent,
     EvenComponent,
-    OddComponent
+    OddComponent,
+    NewEmployeeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule ,
+    NgbPaginationModule, 
+    NgbAlertModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,42 +1,27 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="card">
+            <div class="card"  *ngIf='dataList; else no'>
                 <div class="card-header">Assignment 3</div>
                 <div class="card-header">Directives</div>
                 <div class="card-body">
-                  <div class="row">
-                      <div>
                           <label>Attribute Directives (ngFor, ngIf)</label>
-                          <div>
-                            <ul class="list-group list-group-flush">
+                            <ul class="list-group ">
                                 <li class="list-group-item" *ngFor='let data of dataList'>
                                     {{data}}
                                 </li>
-
                               </ul>
-                          </div>
-                      </div>
-                  </div> 
-                  <div class="row">
-                    <div>
+               
                         <label>Structural Directives (use ngClass, ngStyle)</label>
-                        <div>
-                            <ul class="list-group list-group-flush" *ngIf='dataList; else no'>
+                            <ul class="list-group ">
                                 <li class="list-group-item" *ngFor='let data of dataList' [ngStyle]="{backgroundColor:getColor()}">
                                     {{data}}
                                 </li>
-
-                              </ul>
-                              <ng-template #no>
-                                  <small>no data found!</small>
-                              </ng-template>
-                          </div>
-                    </div>
-                </div>  
+                              </ul>      
                 </div>
             </div>
-        </div>
-      </div>
-  </div>
+
+            <ng-template #no>
+                <div class="alert alert-success" role="alert">
+                   No data found! Please wait for 5 second
+                  </div>
+              </ng-template>
+

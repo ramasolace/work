@@ -9,12 +9,20 @@
 }
 .card-text{
     text-align: center;
+    font-size: medium;
 }
 .hour-card{
     border: 0.2rem solid black;
     border-radius: 12px;
     margin-left: 2rem;
     margin-top: 2rem;
+}
+.info-card{
+    border: 0.2rem solid black;
+    border-radius: 12px;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    font-size: large;
 }
 .classA{
     background-color: cornflowerblue;

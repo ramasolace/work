@@ -63,8 +63,8 @@ span {
 }
 
 #sidebar {
-  min-width: 250px;
-  max-width: 250px;
+  min-width:20%;
+  max-width: 20%;
   background: #262830;
   color: #fff;
   transition: all 0.3s;
@@ -195,7 +195,7 @@ a.article:hover {
   width: 100%;
   padding: 20px;
   min-height: 100vh;
-  background-color: #c4c6cf;
+  /* background-color: #c4c6cf; */
   transition: all 0.3s;
 }
 
@@ -316,15 +316,3 @@ a.article:hover {
   margin-left: 1rem;
 }
 
-.card{
-  border: 0.2rem solid black;
-  border-radius: 12px;
-  margin-top: 1rem;
-}
-.card-header{
-  text-align: center;
-  font-size: large;
-}
-.card-body{
-  text-align: center;
-}
