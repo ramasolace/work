@@ -1,6 +1,19 @@
-.navbar{
-    margin-bottom: 0;
-    background-color: #262830;
-    border-bottom-color: #6e717e;
-    border-radius: 0%;
-}
+
+:host {
+    display: grid;
+    grid-template-rows: 50px auto;
+    grid-template-columns: auto 1fr;
+  }
+  
+  app-sidebar {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+  }
+
+  .content{
+    margin: 2rem;
+  }
+  app-header{
+    background-color: coral;
+  }
+  

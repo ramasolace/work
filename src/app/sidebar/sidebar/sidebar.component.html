@@ -1,57 +1,29 @@
-<div class="wrapper">
-    <!-- Sidebar  -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-                <div class=" profile">
-                        <div class="profile-sidebar">
-                            <!-- SIDEBAR USERPIC -->
-                            <div class="profile-userpic">
-                                <img src="https://gravatar.com/avatar/31b64e4876d603ce78e04102c67d6144?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png" class="img-responsive" alt="">
-                            </div>
-                            <!-- END SIDEBAR USERPIC -->
-                            <!-- SIDEBAR USER TITLE -->
-                            <div class="profile-usertitle">
-                                <div class="profile-usertitle-name">
-                                    Jason Davis
-                                </div>
-                                <div class="profile-usertitle-job">
-                                    Developer
-                                </div>
-                            </div>
-                            <!-- END SIDEBAR USER TITLE -->
-                            <!-- SIDEBAR BUTTONS -->
-                            <div class="profile-userbuttons">
-                                <button type="button" class="btn btn-success btn-sm">Follow</button>
-                                <button type="button" class="btn btn-danger btn-sm">Message</button>
-                            </div>
-                    
-                        </div>
-                </div>
-        </div>
 
-        <ul class="list-unstyled components">
-            <li *ngFor="let menu of menuList">
-                <a href="#">
-                    <span class="fas fa-home"> {{menu}}</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
 
-    <!-- Page Content  -->
-    <div id="content">
-      <ul class="nav nav-pills">
-        <li *ngFor="let data of asignments"[class.active]="tempateName == data">
-          <a (click)="tempateName=data">{{data | uppercase}}</a>
-        </li>
-      </ul>
-      <div [ngSwitch]="tempateName">
-        <div *ngSwitchCase="'assignment1'"><app-assignment1></app-assignment1></div>
-        <div *ngSwitchCase="'assignment2'"><app-assignment2></app-assignment2></div>
-        <div *ngSwitchCase="'assignment3'"><app-assignment3></app-assignment3></div>
-        <div *ngSwitchCase="'assignment4'"><app-employee></app-employee></div>
-        <div *ngSwitchCase="'assignment5'">
-          <app-employee-list></app-employee-list>
+<div class="main">
+
+    <div class="side-navigation__menu-button">
+          <div  class="side-navigation__menu-button-label">
+            <i-feather name="grid"></i-feather> <span *ngIf="expanded">My App</span>
+          </div>
         </div>
-      </div>  
+     <div>
+        <div>
+            <ul class="nav flex-column">
+
+                <li class="nav-item" [ngbTooltip]="menu.name" *ngFor="let menu of menuList" [class.active]="menu.active" (click)="setActive(menu)">
+                    <a class="nav-link" [routerLink]="menu.path">
+                        <i-feather [name]="menu.icon"></i-feather>  <span *ngIf="expanded">{{menu.name}}</span>  
+                    </a>
+                </li>
+            
+            </ul>
+          </div>
+          <div>
+            <button class="show-button" (click)="expanded = !expanded">
+                <i-feather [name]="!expanded?'chevrons-right':'chevrons-left'"></i-feather>
+            </button>
+          </div>
+     </div>
+         
 </div>

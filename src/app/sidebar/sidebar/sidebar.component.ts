@@ -1,4 +1,4 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component,  HostBinding,  OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,29 +6,26 @@ import { Component,  OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  menuList = ['Employee List', 'Department List', 'Other']
-  asignments = ['assignment1', 'assignment2', 'assignment3',"assignment4", "assignment5"];
-  tempateName = 'assignment1'
-  active = 1;
+  menuList = [
+    { path: 'emp-list', name: 'Employee List', icon:'codesandbox', active:false },
+    { path: 'dep-list', name:'Department List', icon:'codepen', active:false },
+    { path: 'assignment', name: 'Assignments', icon:'edit', active:false},
+    { path: 'help',    name: 'Other', icon:'settings', active:false},
+  ];
+
   constructor() { }
-  oddNumbers: number[] = [];
-  evenNumbers: number[] = [];
-  actualNumber = 0
+  @HostBinding('class.expanded') expanded: boolean = true;
   ngOnInit(): void {
+  
   }
-  getInterval(number: any){
-    console.log(number);
-    this.actualNumber = number;
-    if(number === 0){
-      this.oddNumbers = [];
-      this.evenNumbers = []
-    }else{
-      (number % 2 === 0)? this.evenNumbers.push(number): this.oddNumbers.push(number);
-    }
-    
-  }
-  onClick(value:string){
-    console.log(value);
+
+  setActive(menu){
+    console.log(menu);
+    this.menuList.forEach(res=>
+      {
+        res.active = (menu.name === res.name)?true: false;
+      })
+      console.log(this.menuList);
   }
 
 }

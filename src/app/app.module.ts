@@ -15,6 +15,15 @@ import { EvenComponent } from './even/even.component';
 import { OddComponent } from './odd/odd.component';
 import {NgbActiveModal, NgbAlertModule,  NgbModule,  NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import { NewEmployeeComponent } from './new-employee/new-employee.component';
+import { DepartmentListComponent } from './department-list/department-list.component';
+import { AddDepartmentComponent } from './add-department/add-department.component';
+import { HelpDeskComponent } from './help-desk/help-desk.component';
+import { GroupAssignmentComponent } from './Assignments/group-assignment/group-assignment.component';
+import { AuthGuard } from './auth-gaurd.service';
+import { AuthService } from './auth.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HeaderComponent } from './header/header.component';
+import { IconsModule } from './icons/icons.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +37,13 @@ import { NewEmployeeComponent } from './new-employee/new-employee.component';
     GameControlComponent,
     EvenComponent,
     OddComponent,
-    NewEmployeeComponent
+    NewEmployeeComponent,
+    DepartmentListComponent,
+    AddDepartmentComponent,
+    HelpDeskComponent,
+    GroupAssignmentComponent,
+    PageNotFoundComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +53,9 @@ import { NewEmployeeComponent } from './new-employee/new-employee.component';
     NgbModule ,
     NgbPaginationModule, 
     NgbAlertModule,
+    IconsModule 
   ],
+  providers: [ NgbActiveModal,AuthGuard,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@
     <div class="card-header">Create Simple Game</div>
     <div class="card-body">
         <app-game-control (intervalFired)="getInterval($event)"></app-game-control>
-          <div class="container">
+          <div >
             <div class="row">
               <div class="col"><app-odd *ngFor="let odd of oddNumbers" [oddNumber]="odd">odd</app-odd></div>
               <div class="col"> <app-even *ngFor="let even of evenNumbers " [evenNumber] ="even">even</app-even></div>

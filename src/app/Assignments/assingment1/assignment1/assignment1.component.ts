@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-assignment1',
   templateUrl: './assignment1.component.html',
@@ -63,7 +64,7 @@ export class Assignment1Component implements OnInit {
       status: 'false'
     },
   ];
-  constructor( ) { }
+  constructor(  ) { }
 
   ngOnInit(): void {
     this.showTime();
@@ -88,5 +89,4 @@ export class Assignment1Component implements OnInit {
         }
       })
   }
-
 }

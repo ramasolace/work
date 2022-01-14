@@ -1,0 +1,16 @@
+ <div >
+    <ul class="nav nav-pills">
+        <li *ngFor="let data of asignments"[class.active]="tempateName == data">
+          <a (click)="tempateName=data">{{data | uppercase}}</a>
+        </li>
+      </ul>
+      <div [ngSwitch]="tempateName">
+        <div *ngSwitchCase="'assignment1'"><app-assignment1></app-assignment1></div>
+        <div *ngSwitchCase="'assignment2'"><app-assignment2></app-assignment2></div>
+        <div *ngSwitchCase="'assignment3'"><app-assignment3></app-assignment3></div>
+        <div *ngSwitchCase="'assignment4'"><app-employee></app-employee></div>
+        <div *ngSwitchCase="'assignment5'">
+          <app-employee-list></app-employee-list>
+        </div>
+      </div>  
+ </div>
