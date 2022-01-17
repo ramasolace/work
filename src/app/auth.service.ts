@@ -1,19 +1,29 @@
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
+import { BehaviorSubject } from "rxjs";
+export interface User {
+    userName: string;
+    password: string;
+  }
+  @Injectable()
 export class AuthService {
-    loggedIn = true;
-
-    isAuthinticate(){
-        const promise = new Promise((resolve, reject) => {
-            setTimeout(()=>{
-                resolve(this.loggedIn);
-            }, 1000)
-        })
-        return promise;
-    }
-    login(){
-        this.loggedIn = !this.loggedIn
-    }
-
-    logOut(){
-        this.loggedIn = this.loggedIn;
-    }
+    constructor(
+        private router: Router
+      ) {}
+    get isLoggedIn() {
+        return this.loggedIn.asObservable();
+      }
+    private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+    login(user:User) {
+        console.log(user)
+        if (user.userName === 'admin' && user.password === 'admin008' ) {
+          this.loggedIn.next(true);
+          this.router.navigate(['/assignment']);
+        }
+      }
+    
+      logout() {
+        this.loggedIn.next(false);
+        this.router.navigate(['/login']);
+      }
 }

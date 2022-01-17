@@ -24,6 +24,10 @@ import { AuthService } from './auth.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderComponent } from './header/header.component';
 import { IconsModule } from './icons/icons.module';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { HomeLayoutComponent } from './home-layout/home-layout.component';
+import { LoginLayoutComponent } from './login-layout/login-layout.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -43,14 +47,18 @@ import { IconsModule } from './icons/icons.module';
     HelpDeskComponent,
     GroupAssignmentComponent,
     PageNotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    SignInComponent,
+    HomeLayoutComponent,
+    LoginLayoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule ,
+    NgbModule,
     NgbPaginationModule, 
     NgbAlertModule,
     IconsModule 
