@@ -17,6 +17,7 @@ export class DepartmentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.service.storeDeapartment();
   }
 
 

@@ -20,7 +20,8 @@ export class EmployeeListComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.Employees=this.service.getEmp();
+    this.Employees = this.service.getEmp();
+    console.log(this.Employees);
   }
   displayStyle = "none";
   
@@ -39,6 +40,7 @@ export class EmployeeListComponent implements OnInit {
       this.formAction === 'add'?this.service.addEmp(payload):this.service.editEmp(this.index,payload);
       this.newEmployee.profileForm.reset();
       this.displayStyle = "none";
+
     }
    
   }

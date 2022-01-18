@@ -1,6 +1,6 @@
 
 
-export const COUNTRIES: any[] = [
+export const COUNTRIES = [
   {
     id: 1,
     name: 'Software Deveopment',

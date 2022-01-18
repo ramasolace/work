@@ -28,7 +28,10 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
 import { RegisterComponent } from './register/register.component';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EmployeesService } from './employees.service';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { AuthInterceptorService } from './interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +54,8 @@ import { RegisterComponent } from './register/register.component';
     SignInComponent,
     HomeLayoutComponent,
     LoginLayoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -61,9 +65,14 @@ import { RegisterComponent } from './register/register.component';
     NgbModule,
     NgbPaginationModule, 
     NgbAlertModule,
-    IconsModule 
+    IconsModule,
+    HttpClientModule
   ],
-  providers: [ NgbActiveModal,AuthGuard,AuthService],
+  providers: [ NgbActiveModal,AuthService,EmployeesService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
