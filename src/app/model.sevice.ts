@@ -10,16 +10,7 @@ export class ModalService {
 
   constructor(private ngbModal: NgbModal) { }
 
-//   confirm(message = 'Really?', title = 'Confirm'): Observable<boolean> {
-//     const modal = this.ngbModal.open(
-//       ConfirmDialogComponent,
-//       { backdrop: 'static' });
 
-//     modal.componentInstance.message = message;
-//     modal.componentInstance.title = title;
-
-//     return from(modal.result);
-//   }
 
   custom(content: any, config?: { [index: string]: any; }, options?: NgbModalOptions): Observable<any> {
     const modal = this.ngbModal.open(content, { backdrop: 'static', ...options });

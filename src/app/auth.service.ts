@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, tap } from "rxjs";
+import { environment } from "src/environments/environment";
 
 import { UserData } from "./sign-in/user.model";
 export interface User {
@@ -30,7 +31,7 @@ export class AuthService {
     private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
     login(user:User) {
         console.log(user)
-         this.http.post<UserRes>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDTBlD_w5i814tBQmw2Tf6CrlMzT3vo7V0',
+         this.http.post<UserRes>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='+ environment.fireBaseKey,
         {
           email: user.userName,
           password: user.password,
@@ -52,7 +53,7 @@ export class AuthService {
       }
 
       signUp(user:User){
-       return this.http.post<UserRes>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDTBlD_w5i814tBQmw2Tf6CrlMzT3vo7V0',
+       return this.http.post<UserRes>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='+ environment.fireBaseKey,
         {
           email: user.userName,
           password: user.password,
@@ -96,9 +97,11 @@ export class AuthService {
         }
          const loadedUser = new UserData(userData.email,userData.id,userData.token,new Date(userData.tokenExpirationDate));
          if(loadedUser.token){
+           console.log(loadedUser.token);
            this.user.next(loadedUser);
            const time = new Date(userData.tokenExpirationDate).getTime() - new Date().getTime()
-           this.autoLogOut(time);
+           console.log(time);
+           //this.autoLogOut(time);
          }
       }
 

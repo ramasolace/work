@@ -19,8 +19,6 @@ import { DepartmentListComponent } from './department-list/department-list.compo
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { HelpDeskComponent } from './help-desk/help-desk.component';
 import { GroupAssignmentComponent } from './Assignments/group-assignment/group-assignment.component';
-import { AuthGuard } from './auth-gaurd.service';
-import { AuthService } from './auth.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderComponent } from './header/header.component';
 import { IconsModule } from './icons/icons.module';
@@ -28,10 +26,10 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
 import { RegisterComponent } from './register/register.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { EmployeesService } from './employees.service';
+import { HttpClientModule, } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
-import { AuthInterceptorService } from './interceptor.service';
+import { AlertComponent } from './alert/alert.component';
+import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +53,8 @@ import { AuthInterceptorService } from './interceptor.service';
     HomeLayoutComponent,
     LoginLayoutComponent,
     RegisterComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -66,13 +65,9 @@ import { AuthInterceptorService } from './interceptor.service';
     NgbPaginationModule, 
     NgbAlertModule,
     IconsModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule
   ],
-  providers: [ NgbActiveModal,AuthService,EmployeesService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptorService,
-    multi: true
-  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
