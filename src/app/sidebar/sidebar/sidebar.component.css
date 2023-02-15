@@ -2,7 +2,7 @@
 
 :host {
   display: flex;
-  width: 50px;
+  width: 60px;
   height: 100vh;
   background: linear-gradient(to bottom, #F1661B 0%, #FA323D 100%);
   overflow-x: hidden;
@@ -10,7 +10,7 @@
 }
 
 :host.expanded {
-  width: 200px;
+  width: 210px;
 }
 
 .side-navigation__menu-button {

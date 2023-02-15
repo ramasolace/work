@@ -1,10 +1,9 @@
 
 
-<div class="main">
-
+<div class="main"> 
     <div class="side-navigation__menu-button">
           <div  class="side-navigation__menu-button-label">
-            <i-feather name="grid"></i-feather> <span *ngIf="expanded">My App</span>
+            <i-feather name="grid" (click)="expanded = !expanded"></i-feather> <span *ngIf="expanded">My App</span>
           </div>
         </div>
      <div>
@@ -19,11 +18,11 @@
             
             </ul>
           </div>
-          <div>
+          <!-- <div>
             <button class="show-button" (click)="expanded = !expanded">
                 <i-feather [name]="!expanded?'chevrons-right':'chevrons-left'"></i-feather>
             </button>
-          </div>
+          </div> -->
      </div>
          
 </div>

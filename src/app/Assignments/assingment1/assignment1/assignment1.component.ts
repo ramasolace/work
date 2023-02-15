@@ -68,6 +68,10 @@ export class Assignment1Component implements OnInit {
 
   ngOnInit(): void {
     this.showTime();
+    this.findDuplicateIntoString('assignment');
+    let dummyArr = [1,4,'2',7,3,3,3,9,1,8,8,0,2,4,4,6,2];
+      let res = dummyArr.filter((value,index)=>dummyArr.indexOf(value) !== index);
+      console.log(res);
   }
 
   showTime() {
@@ -89,4 +93,30 @@ export class Assignment1Component implements OnInit {
         }
       })
   }
+
+  findDuplicateIntoString(value:string):void{
+    let res = value.split('');
+    let res2 =  res.filter((value,index)=> res.indexOf(value) !== index);
+    console.log(res2);
+    var arr = [1,100];
+    var arr1 = [];
+     for(let i = 1; i<=arr[arr.length - 1] - 1 ; i++){
+       console.log(i);
+       if( arr.indexOf(i) == -1){
+        arr1.push(i)
+       }
+     }
+
+let name = "apple"
+let check = name.split('').reverse().join('');
+if(name === check){
+console.log('hi');
+}
+console.log(arr1);
+var a=3;
+var b=a++;
+var c=++a;
+console.log(a)
+
+}
 }

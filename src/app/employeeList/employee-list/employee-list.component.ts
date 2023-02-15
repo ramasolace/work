@@ -1,5 +1,6 @@
 import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Assignment1Component } from 'src/app/Assignments/assingment1/assignment1/assignment1.component';
 import { EmployeesService } from 'src/app/employees.service';
 import { NewEmployeeComponent } from 'src/app/new-employee/new-employee.component';
 
@@ -15,7 +16,7 @@ export class EmployeeListComponent implements OnInit {
     Employees;
     formAction = 'add';
     index;
-  constructor(private service: EmployeesService) {
+  constructor(private service: EmployeesService, private modelService: NgbModal) {
 
    }
 
@@ -26,10 +27,12 @@ export class EmployeeListComponent implements OnInit {
   displayStyle = "none";
   
   openPopup(data) {
+ //const res = this.modelService.open(NewEmployeeComponent,{size:'lg'});
     this.formAction ='add'
      this.newEmployee.profileForm.reset();
     console.log(data);
     this.displayStyle = "block";
+
   }
   onSubmit(){
     if(this.newEmployee.profileForm.valid){

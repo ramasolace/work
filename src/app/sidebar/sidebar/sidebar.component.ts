@@ -11,6 +11,7 @@ export class SidebarComponent implements OnInit {
     { path: 'emp-list', name: 'Employee List', icon:'codesandbox', active:false },
     { path: 'dep-list', name:'Department List', icon:'codepen', active:false },
     { path: 'help',    name: 'Other', icon:'settings', active:false},
+    { path: 'list-product',    name: 'shop', icon:'settings', active:false}
   ];
   defaultMneu={
     "path": "assignment",
